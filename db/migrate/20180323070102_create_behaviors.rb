@@ -3,7 +3,6 @@ class CreateBehaviors < ActiveRecord::Migration[5.1]
     create_table :behaviors do |t|
       t.string :name
       t.string :details
-      t.integer :condition_id
 
       t.timestamps
     end
