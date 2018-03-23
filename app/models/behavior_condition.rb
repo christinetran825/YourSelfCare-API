@@ -1,0 +1,2 @@
+class BehaviorCondition < ApplicationRecord
+end

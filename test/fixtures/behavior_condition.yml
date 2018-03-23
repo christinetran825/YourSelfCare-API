@@ -2,8 +2,8 @@
 
 one:
   behavior_id: 1
-  type_of_id: 1
+  condition_id: 1
 
 two:
   behavior_id: 1
-  type_of_id: 1
+  condition_id: 1

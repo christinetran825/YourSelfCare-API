@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class BehaviorTypeOfTest < ActiveSupport::TestCase
+class BehaviorConditionTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

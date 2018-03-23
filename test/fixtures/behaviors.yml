@@ -3,9 +3,9 @@
 one:
   name: MyString
   details: MyString
-  type_of: MyString
+  conditions: MyString
 
 two:
   name: MyString
   details: MyString
-  type_of: MyString
+  conditions: MyString

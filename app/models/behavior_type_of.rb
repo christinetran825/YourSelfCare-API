@@ -1,2 +1,0 @@
-class BehaviorTypeOf < ApplicationRecord
-end

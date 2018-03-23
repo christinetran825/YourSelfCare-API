@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class TypeOfTest < ActiveSupport::TestCase
+class ConditionTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
