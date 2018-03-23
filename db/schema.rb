@@ -10,6 +10,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20180323193412) do
+
+  create_table "behavior_condition", force: :cascade do |t|
+    t.integer "behavior_id"
+    t.integer "condition_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "behaviors", force: :cascade do |t|
+    t.string "name"
+    t.string "details"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "condition_id"
+    t.index ["condition_id"], name: "index_behaviors_on_condition_id"
+  end
+
+  create_table "conditions", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "behavior_id"
+    t.index ["behavior_id"], name: "index_conditions_on_behavior_id"
+  end
 
 end
