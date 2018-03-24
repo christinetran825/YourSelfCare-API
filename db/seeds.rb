@@ -19,18 +19,44 @@ behavior_list.each do |behavior|
   Behavior.create( name: behavior[0], details: behavior[1])
 end
 
-# behavior_list = [
-#   ["Sleep", "Sleep Details", ["Good", "OK", "Bad"]],
-#   ["Mood", "Mood Details", ["Happy", "Sad", "Anxious", "Sensitive", "Hopeless", "Angry", "Irritable", "Empty", "Tired"]],
-#   ["Energy", "Energy Details", ["Very High", "High", "Low", "Very Low"]],
-#   ["Mental", "Mental Details", ["Calm", "Stressed", "Distracted", "Focused"]],
-#   ["Drinks", "Drinks Details", ["Water", "Coffee", "Tea", "Alcohol"]],
-#   ["Medication", "Medication Details", [""]],
-# ]
-#
-# behavior_list.each do |behavior|
-#   Behavior.create( name: behavior[0], details: behavior[1], conditions_attributes: behavior[2])
-# end
+sleeping = Behavior.find_by(id: 1)
+mood = Behavior.find_by(id: 2)
+energy = Behavior.find_by(id: 3)
+mental = Behavior.find_by(id: 4)
+drinks = Behavior.find_by(id: 5)
+medication = Behavior.find_by(id: 6)
+
+sleep_condition = ["Good", "OK", "Bad"]
+mood_condition = ["Happy", "Sad", "Anxious", "Sensitive", "Hopeless", "Angry", "Irritable", "Empty", "Tired"]
+energy_condition = ["Very High", "High", "Low", "Very Low"]
+mental_condition = ["Calm", "Stressed", "Distracted", "Focused"]
+drink_condition = ["Water", "Coffee", "Tea", "Alcohol"]
+medication_condition = [""]
+
+
+sleep_condition.each do |condition|
+  sleeping.conditions << Condition.create( name: condition)
+end
+
+mood_condition.each do |condition|
+  mood.conditions << Condition.create( name: condition)
+end
+
+energy_condition.each do |condition|
+  energy.conditions << Condition.create( name: condition)
+end
+
+mental_condition.each do |condition|
+  mental.conditions << Condition.create( name: condition)
+end
+
+drink_condition.each do |condition|
+  drinks.conditions << Condition.create( name: condition)
+end
+
+medication_condition.each do |condition|
+  medication.conditions << Condition.create
+end
 
 # condition_list = [
 #   ["Good", "OK", "Bad"],
@@ -40,6 +66,12 @@ end
 #   ["Water", "Coffee", "Tea", "Alcohol"],
 #   [""]
 # ]
+#
+# condition_list.each do |category_condition|
+#   category_condition.each do |condition|
+#     Conditions.create( name: condition )
+#   end
+# end
 
 # Behaviors {
 #   [ name: "Sleep",
