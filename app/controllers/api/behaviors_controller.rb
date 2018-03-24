@@ -1,6 +1,6 @@
 class Api::BehaviorsController < ApplicationController
 
-  before_action :set_behavior, only: [:show]
+  before_action :set_behavior, only: [:show, :update]
 
   def index
     render json: Behavior.all
@@ -8,6 +8,14 @@ class Api::BehaviorsController < ApplicationController
 
   def show
     render json: @behavior
+  end
+
+  def update
+    if @behavior.update(behavior_params)
+      render json: @behavior
+    else
+      render json: { message: @behavior.errors }, status: 400
+    end
   end
 
   private
