@@ -27,7 +27,7 @@ drinks = Behavior.find_by(id: 5)
 medication = Behavior.find_by(id: 6)
 
 sleep_condition = ["Good", "OK", "Bad"]
-mood_condition = ["Happy", "Sad", "Anxious", "Sensitive", "Hopeless", "Angry", "Irritable", "Empty", "Tired"]
+mood_condition = ["Happy", "Sad", "Anxious", "Guilty", "Inferior", "Lonely", "Embarrassed", "Sensitive", "Hopeless", "Angry", "Frustrated", "Empty", "Tired"]
 energy_condition = ["Very High", "High", "Low", "Very Low"]
 mental_condition = ["Calm", "Stressed", "Distracted", "Focused"]
 drink_condition = ["Water", "Coffee", "Tea", "Alcohol"]
