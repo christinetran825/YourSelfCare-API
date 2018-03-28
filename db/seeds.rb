@@ -80,10 +80,51 @@ end
 
 
 
-user = User.new({name: "James Peach"}, {email: "james@email.com"})
+user = User.create([{name: "James Peach", email: "james@email.com"}])
 
-medication = ["Medication A", 10, "Doctor A", 1/1/18, "first medication ever taken"]
+user_one = User.find_by(id: 1)
 
-insurance = ["Insurance A", "123 Street, Los Angeles, CA 12345", 555-5555, "PPO insurance"]
 
-provider = [["Doctor A", "456 Street, Los Angeles, CA 12345", 222-2222, 1/1/18, "Very patient doctor.", "Primary Care"], ["Psychiatrist A", "789 Ave, Los Angeles, CA 12345", 222-2222, 1/1/18, "Very patient doctor.", "Psychiatrist"], ["Therapist A", "10 Drive, Los Angeles, CA 12345", 222-2222, 1/1/18, "Very patient doctor.", "Therapist"]]
+#
+# user.medications << meds
+# user.insurances << insurance
+# user.providers << Provider.all
+#
+medication_list = [["Medication A", 10, "Doctor A", 1/1/18, "first medication ever taken."]]
+
+medication_list.each do |medication|
+  user_one.medications << Medication.create([{name: medication[0], dose: medication[1], prescribed: medication[2], first_dose: medication[3], notes: medication[4]}])
+end
+
+
+
+
+# meds = Medication.find_by(id: 1)
+#
+# insurance_list = ["Insurance A", "123 Street, Los Angeles, CA 12345", 555-5555, "PPO insurance"]
+#
+# insurance_list.each do |insurance|
+#   Insurance.create( name: insurance[0], address: insurance[1], phone: insurance[2], notes: insurance[3])
+# end
+#
+# insurance = Insurance.find_by(id: 1)
+# #
+# provider_list = [
+#   ["Doctor A", "456 Street, Los Angeles, CA 12345", 222-2222, 1/1/18, "Very patient doctor."],
+#   ["Psychiatrist A", "789 Ave, Los Angeles, CA 12345", 222-2222, 1/1/18, "Very patient doctor."],
+#   ["Therapist A", "10 Drive, Los Angeles, CA 12345", 222-2222, 1/1/18, "Very patient doctor."]
+# ]
+#
+# provider_list.each do |provider|
+#   Provider.create( name: provider[0], address: provider[1], phone: provider[2], first_visit: provider[3], notes: provider[4])
+# end
+#
+# the_pcp = Provider.find_by(id: 1)
+# the_psych = Provider.find_by(id: 2)
+# the_therapist = Provider.find_by(id: 3)
+#
+# provider_types = ["Primary Care", "Psychiatrist", "Therapist"]
+#
+# the_pcp.provider_types << the_type[0]
+# the_psych.provider_types << the_type[1]
+# the_therapist.provider_types << the_type[2]
