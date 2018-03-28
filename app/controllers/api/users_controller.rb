@@ -47,11 +47,12 @@ class Api::UsersController < ApplicationController
         :name,
         :email,
         medication_ids:[],
-        :medications_attributes => [:id, :name, :dose, :prescribed, :first_dose, :notes, :_destroy])
+        medications_attributes: [:id, :name, :dose, :prescribed, :first_dose, :notes, :_destroy],
         insurance_ids:[],
-        :insurances_attributes => [:id, :name, :address, :phone, :notes, :_destroy])
+        insurances_attributes: [:id, :name, :address, :phone, :notes, :_destroy],
         provider_ids:[],
-        :providers_attributes => [:id, :name, :address, :phone, :first_visit, :notes, :provider_type, :_destroy])
+        provider_attributes: [:id, :name, :address, :phone, :first_visit, :notes, :_destroy]
+      )
     end
 
 end
