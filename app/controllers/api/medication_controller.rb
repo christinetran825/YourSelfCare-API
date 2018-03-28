@@ -3,13 +3,14 @@ class Api::MedicationController < ApplicationController
   before_action :set_medication, only: [:show, :update, :destroy]
 
   def index
-    render json: Medication.all
+    @medications = @user.medications
+    render json: @medications
   end
 
   def create
-    medication = Medication.new(medication_params)
-    if medication.save
-      render json: medication
+    @medication = @user.medications.build(medication_params)
+    if @medication && medication.save
+      render json: @medication
     else
       render json: { message: medication.errors }, status: 400
     end

@@ -3,13 +3,14 @@ class Api::InsuranceController < ApplicationController
   before_action :set_insurance, only: [:show, :update, :destroy]
 
   def index
-    render json: Insurance.all
+    @insurances = @user.insurances
+    render json: @insurances
   end
 
   def create
-    insurance = Insurance.new(insurance_params)
-    if insurance.save
-      render json: insurance
+    @insurance = @user.insurances.build(insurance_params)
+    if @insurance && @insurance.save
+      render json: @insurance
     else
       render json: { message: insurance.errors }, status: 400
     end
