@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180328033537) do
+ActiveRecord::Schema.define(version: 20180328065031) do
 
   create_table "behavior_condition", force: :cascade do |t|
     t.integer "behavior_id"
@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(version: 20180328033537) do
   create_table "insurances", force: :cascade do |t|
     t.string "name"
     t.string "address"
-    t.integer "phone"
+    t.string "phone"
     t.text "notes"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -68,7 +68,7 @@ ActiveRecord::Schema.define(version: 20180328033537) do
   create_table "providers", force: :cascade do |t|
     t.string "name"
     t.string "address"
-    t.integer "phone"
+    t.string "phone"
     t.datetime "first_visit"
     t.text "notes"
     t.datetime "created_at", null: false
