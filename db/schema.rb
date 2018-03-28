@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180323193412) do
+ActiveRecord::Schema.define(version: 20180328033537) do
 
   create_table "behavior_condition", force: :cascade do |t|
     t.integer "behavior_id"
@@ -34,6 +34,61 @@ ActiveRecord::Schema.define(version: 20180323193412) do
     t.datetime "updated_at", null: false
     t.integer "behavior_id"
     t.index ["behavior_id"], name: "index_conditions_on_behavior_id"
+  end
+
+  create_table "insurances", force: :cascade do |t|
+    t.string "name"
+    t.string "address"
+    t.integer "phone"
+    t.text "notes"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_insurances_on_user_id"
+  end
+
+  create_table "medications", force: :cascade do |t|
+    t.string "name"
+    t.integer "dose"
+    t.string "prescribed"
+    t.datetime "first_dose"
+    t.text "notes"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_medications_on_user_id"
+  end
+
+  create_table "provider_types", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "providers", force: :cascade do |t|
+    t.string "name"
+    t.string "address"
+    t.integer "phone"
+    t.datetime "first_visit"
+    t.text "notes"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_providers_on_user_id"
+  end
+
+  create_table "providers_provider_types", force: :cascade do |t|
+    t.integer "provider_id"
+    t.integer "provider_types_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
