@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  dose: 1
+  prescribed: MyString
+  first_dose: 2018-03-27 19:19:25
+  notes: MyText
+
+two:
+  name: MyString
+  dose: 1
+  prescribed: MyString
+  first_dose: 2018-03-27 19:19:25
+  notes: MyText
