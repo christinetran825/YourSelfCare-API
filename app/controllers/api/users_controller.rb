@@ -52,7 +52,7 @@ class Api::UsersController < ApplicationController
         insurances_attributes: [:id, :name, :address, :phone, :notes, :_destroy],
         provider_ids:[],
         provider_attributes: [:id, :name, :address, :phone, :first_visit, :notes,
-          department_id:[], :departments_attributes => [:id, :name, :_destroy], :_destroy]
+          {department_id:[], departments_attributes: [:id, :name, :_destroy]}, :_destroy]
       )
     end
 
