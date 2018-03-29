@@ -1,4 +1,4 @@
 class Department < ApplicationRecord
-  has_many :providers_departments
-  has_many :providers, through: :providers_departments
+  has_many :provider_departments
+  has_many :providers, through: :provider_departments
 end
