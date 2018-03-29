@@ -1,6 +1,6 @@
 class Provider < ApplicationRecord
   belongs_to :user
-  has_many :providers_provider_types
-  has_many :provider_types, through: :providers_provider_types
-  accepts_nested_attributes_for :provider_types
+  has_many :providers_departments
+  has_many :departments, through: :providers_departments
+  accepts_nested_attributes_for :departments, :allow_destroy => :true
 end

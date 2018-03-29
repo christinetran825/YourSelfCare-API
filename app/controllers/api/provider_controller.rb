@@ -43,7 +43,7 @@ class Api::ProviderController < ApplicationController
     end
 
     def provider_params
-      params.require(:provider).permit(:name, :address, :phone, :first_visit, :notes, provider_types_id:[], :provider_types_attributes => [:id, :name, :_destroy])
+      params.require(:provider).permit(:name, :address, :phone, :first_visit, :notes, department_id:[], :departments_attributes => [:id, :name, :_destroy])
     end
 
 end
