@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180328065031) do
+ActiveRecord::Schema.define(version: 20180329032207) do
 
   create_table "behavior_condition", force: :cascade do |t|
     t.integer "behavior_id"
@@ -36,6 +36,14 @@ ActiveRecord::Schema.define(version: 20180328065031) do
     t.index ["behavior_id"], name: "index_conditions_on_behavior_id"
   end
 
+  create_table "departments", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "provider_id"
+    t.index ["provider_id"], name: "index_departments_on_provider_id"
+  end
+
   create_table "insurances", force: :cascade do |t|
     t.string "name"
     t.string "address"
@@ -59,8 +67,9 @@ ActiveRecord::Schema.define(version: 20180328065031) do
     t.index ["user_id"], name: "index_medications_on_user_id"
   end
 
-  create_table "provider_types", force: :cascade do |t|
-    t.string "name"
+  create_table "provider_departments", force: :cascade do |t|
+    t.integer "provider_id"
+    t.integer "department_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -74,14 +83,9 @@ ActiveRecord::Schema.define(version: 20180328065031) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
+    t.integer "department_id"
+    t.index ["department_id"], name: "index_providers_on_department_id"
     t.index ["user_id"], name: "index_providers_on_user_id"
-  end
-
-  create_table "providers_provider_types", force: :cascade do |t|
-    t.integer "provider_id"
-    t.integer "provider_types_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
