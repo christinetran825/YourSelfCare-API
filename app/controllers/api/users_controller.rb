@@ -43,17 +43,9 @@ class Api::UsersController < ApplicationController
     end
 
     def user_params
-      params.require(:user).permit(
-        :name,
-        :email,
-        medication_ids:[],
-        medications_attributes: [:id, :name, :dose, :prescribed, :first_dose, :notes, :_destroy],
-        insurance_ids:[],
-        insurances_attributes: [:id, :name, :address, :phone, :notes, :_destroy],
-        provider_ids:[],
-        provider_attributes: [:id, :name, :address, :phone, :first_visit, :notes,
-          {department_id:[], departments_attributes: [:id, :name, :_destroy]}, :_destroy]
-      )
+      params.require(:user).permit(:name,:email)
     end
 
 end
+# provider_attributes: [:id, :name, :address, :phone, :first_visit, :notes,
+#   {department_id:[], departments_attributes: [:id, :name, :_destroy]}, :_destroy]
