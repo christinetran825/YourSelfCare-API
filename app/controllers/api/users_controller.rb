@@ -1,6 +1,6 @@
 class Api::UsersController < ApplicationController
 
-  skip_before_action :authenticate_user, only: [:create]
+  skip_before_action :authenticate_user, only: [:create], raise: false
   # before_action :set_user, only: [:show, :update]
 
   def index
