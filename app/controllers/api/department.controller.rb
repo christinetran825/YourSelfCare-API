@@ -15,10 +15,6 @@ class Api::DepartmentController< ApplicationController
     end
   end
 
-  def show
-    render json: @department
-  end
-
   def update
     if @department.update(department_params)
       render json: @department
@@ -38,7 +34,7 @@ class Api::DepartmentController< ApplicationController
   private
 
     def set_department
-      @department = Department.find_by(id: params[:id])
+      @department = Department.find(id: params[:id])
     end
 
     def department_params

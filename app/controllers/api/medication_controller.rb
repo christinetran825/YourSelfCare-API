@@ -3,21 +3,17 @@ class Api::MedicationController < ApplicationController
   before_action :set_medication, only: [:show, :update, :destroy]
 
   def index
-    @medications = @user.medications
+    @medications = current_user.medications
     render json: @medications
   end
 
   def create
-    @medication = @user.medications.build(medication_params)
-    if @medication && medication.save
+    @medication = current_user.medications.build(medication_params)
+    if @medication && @medication.save
       render json: @medication
     else
-      render json: { message: medication.errors }, status: 400
+      render json: { message: @medication.errors }, status: 400
     end
-  end
-
-  def show
-    render json: @medication
   end
 
   def update
@@ -39,7 +35,7 @@ class Api::MedicationController < ApplicationController
   private
 
     def set_medication
-      @medication = Medication.find_by(id: params[:id])
+      @medication = Medication.find(id: params[:id])
     end
 
     def medication_params

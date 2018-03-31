@@ -3,16 +3,16 @@ class Api::ProviderController < ApplicationController
   before_action :set_provider, only: [:show, :update, :destroy]
 
   def index
-    @providers = @user.providers
+    @providers = current_user.providers
     render json: @providers
   end
 
   def create
-    @provider = @user.providers.build(provider_params)
+    @provider = current_user.providers.build(provider_params)
     if @provider && @provider.save
       render json: @provider
     else
-      render json: { message: provider.errors }, status: 400
+      render json: { message: @provider.errors }, status: 400
     end
   end
 
@@ -39,7 +39,7 @@ class Api::ProviderController < ApplicationController
   private
 
     def set_provider
-      @provider = Provider.find_by(id: params[:id])
+      @provider = Provider.find(id: params[:id])
     end
 
     def provider_params
