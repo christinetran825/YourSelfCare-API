@@ -36,86 +36,48 @@ mood_condition = ["Happy", "Sad", "Anxious", "Guilty", "Inferior", "Lonely", "Em
 energy_condition = ["Very High", "High", "Low", "Very Low"]
 mental_condition = ["Calm", "Stressed", "Distracted", "Focused"]
 drink_condition = ["Water", "Coffee", "Tea", "Alcohol"]
-medication_condition = [""]
+medication_condition = ["Prescriptions", "Vitamins"]
 
 
 sleep_condition.each do |condition|
-  sleeping.conditions << Condition.create( name: condition)
+  sleeping.conditions << Condition.create(name: condition)
 end
 
 mood_condition.each do |condition|
-  mood.conditions << Condition.create( name: condition)
+  mood.conditions << Condition.create(name: condition)
 end
 
 energy_condition.each do |condition|
-  energy.conditions << Condition.create( name: condition)
+  energy.conditions << Condition.create(name: condition)
 end
 
 mental_condition.each do |condition|
-  mental.conditions << Condition.create( name: condition)
+  mental.conditions << Condition.create(name: condition)
 end
 
 drink_condition.each do |condition|
-  drinks.conditions << Condition.create( name: condition)
+  drinks.conditions << Condition.create(name: condition)
 end
 
 medication_condition.each do |condition|
-  medication.conditions << Condition.create
+  medication.conditions << Condition.create(name: condition)
 end
 
-# condition_list = [
-#   ["Good", "OK", "Bad"],
-#   ["Happy", "Sad", "Anxious", "Sensitive", "Hopeless", "Angry", "Irritable", "Empty", "Tired"],
-#   ["Very High", "High", "Low", "Very Low"],
-#   ["Calm", "Stressed", "Distracted", "Focused"],
-#   ["Water", "Coffee", "Tea", "Alcohol"],
-#   [""]
-# ]
-#
-# condition_list.each do |category_condition|
-#   category_condition.each do |condition|
-#     Conditions.create( name: condition )
-#   end
-# end
 
+User.create(name: "James Peach", email: "james@email.com", password: "peaches")
+User.create(name: "Kebler Elf", email: "elf@email.com", password: "cookies")
 
+Medication.create(name: "Medication A", dose: 10, prescribed: "Psychiatrist A", first_dose: Date.new(2018,1,6), notes: "first medication ever taken.", user_id: 1)
+Medication.create(name: "Medication B", dose: 10, prescribed: "Psychiatrist B", first_dose: Date.new(2018,1,6), notes: "second medication ever taken.", user_id: 1)
+Medication.create(name: "Medication A", dose: 30, prescribed: "Psychiatrist A", first_dose: Date.new(2018,1,6), notes: "trial medication", user_id: 2)
 
-user = User.create([{name: "James Peach", email: "james@email.com"}])
+Insurance.create(name: "Insurance A", address: "123 Street, Los Angeles, CA 12345", phone: "555-555-5555", notes: "PPO insurance", user_id: 1)
+Insurance.create(name: "Insurance A", address: "500 Street, Los Angeles, CA 12345", phone: "888-888-8888", notes: "HMO insurance", user_id: 2)
 
-user_one = User.find_by(id: 1)
+Provider.create(name: "Doctor A", address: "456 Street, Los Angeles, CA 12345", phone: "222-222-2222", first_visit: Date.new(2018,1,6), notes: "Very patient doctor.", user_id: 1)
+Provider.create(name: "Psychiatrist A", address: "789 Ave, Los Angeles, CA 12345", phone: "333-333-3333", first_visit: Date.new(2018,1,16), notes: "Very patient doctor.", user_id: 1)
+Provider.create(name: "Therapist A", address: "10 Drive, Los Angeles, CA 12345", phone: "444-444-4444", first_visit: Date.new(2018,1,26), notes: "Very patient doctor.", user_id: 1)
 
-medication_list = [["Medication A", 10, "Psychiatrist A", Date.new(2018,1,6), "first medication ever taken."]]
-
-medication_list.each do |medication|
-  user_one.medications << Medication.create([{name: medication[0], dose: medication[1], prescribed: medication[2], first_dose: medication[3], notes: medication[4]}])
-end
-
-insurance_list = [["Insurance A", "123 Street, Los Angeles, CA 12345", "555-555-5555", "PPO insurance"]]
-
-insurance_list.each do |insurance|
-  user_one.insurances << Insurance.create( name: insurance[0], address: insurance[1], phone: insurance[2], notes: insurance[3])
-end
-
-provider_list = [
-  ["Doctor A", "456 Street, Los Angeles, CA 12345", "222-222-2222", Date.new(2018,1,6), "Very patient doctor."],
-  ["Psychiatrist A", "789 Ave, Los Angeles, CA 12345", "333-333-3333", Date.new(2018,1,16), "Very patient doctor."],
-  ["Therapist A", "10 Drive, Los Angeles, CA 12345", "444-444-4444", Date.new(2018,1,26), "Very patient doctor."]
-]
-
-provider_list.each do |provider|
-  user_one.providers << Provider.create( name: provider[0], address: provider[1], phone: provider[2], first_visit: provider[3], notes: provider[4])
-end
-
-the_pcp = Provider.find_by(id: 1)
-the_psych = Provider.find_by(id: 2)
-the_therapist = Provider.find_by(id: 3)
-
-Department.create([{name: "Primary Care"}, {name: "Psychiatrist"}, {name: "Therapist"}])
-
-# pcp = the_provider.find_by(id: 1)
-# psych = the_provider.find_by(id: 2)
-# therapist = the_provider.find_by(id: 3)
-
-the_pcp.departments << Department.find_by(id: 1)
-the_psych.departments << Department.find_by(id: 1)
-the_therapist.departments << Department.find_by(id: 1)
+Department.create(name: "Primary Care", :provider_id: 1)
+Department.create(name: "Psychiatrist", :provider_id: 1)
+Department.create(name: "Therapist", :provider_id: 1)
