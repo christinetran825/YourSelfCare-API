@@ -1,6 +1,6 @@
 class Api::InsuranceController < ApplicationController
 
-  skip_before_action :authenticate_user, only: [:create], raise: false
+  before_action :authenticate_user
   before_action :set_insurance, only: [:show, :update, :destroy]
 
   def index

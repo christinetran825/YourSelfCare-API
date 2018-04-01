@@ -1,7 +1,8 @@
 class Api::UsersController < ApplicationController
 
-  skip_before_action :authenticate_user, only: [:create], raise: false
-  # before_action :set_user, only: [:show, :update]
+  # before_action :authenticate_user
+  # skip_before_action :authenticate_user, only: [:create], raise: false
+  before_action :set_user, only: [:show, :update]
 
   def index
     @users = User.all
@@ -13,7 +14,7 @@ class Api::UsersController < ApplicationController
     if @user && @user.save
       render json: @user
     else
-      render json: { message: @user.errors }, status: 400
+      render json: @user.errors, status: 400
     end
   end
 
@@ -25,7 +26,7 @@ class Api::UsersController < ApplicationController
     if @user.update(user_params)
       render json: @user
     else
-      render json: { message: @user.errors }, status: 400
+      render json: @user.errors, status: 400
     end
   end
 
@@ -40,7 +41,7 @@ class Api::UsersController < ApplicationController
     end
 
     def user_params
-      params.require(:user).permit(:name, :email, :password, :password_confirmation)
+      params.require(:user).permit(:name, :email, :password_digest)
     end
 
 end

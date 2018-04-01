@@ -1,6 +1,6 @@
 class Api::BehaviorsController < ApplicationController
 
-  skip_before_action :authenticate_user, only: [:create], raise: false
+  before_action :authenticate_user
   before_action :set_behavior, only: [:show, :update]
 
   def index

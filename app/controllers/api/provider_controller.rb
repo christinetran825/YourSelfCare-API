@@ -1,6 +1,6 @@
 class Api::ProviderController < ApplicationController
 
-  skip_before_action :authenticate_user, only: [:create], raise: false
+  before_action :authenticate_user
   before_action :set_provider, only: [:show, :update, :destroy]
 
   def index
