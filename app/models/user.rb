@@ -6,5 +6,5 @@ class User < ApplicationRecord
   accepts_nested_attributes_for :medications, :insurances, :providers
 
   validates :email, uniqueness: true, presence: true
-  validates :password, presence: true, length: { minimum: 6 }
+  validates :password_digest, presence: true, length: { minimum: 6 }
 end
