@@ -1,5 +1,5 @@
 class Insurance < ApplicationRecord
-  belongs_to :user
+  belongs_to :user, optional: true
 
   validates_presence_of :name, :address, :phone, :notes
 
