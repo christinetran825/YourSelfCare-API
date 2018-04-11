@@ -78,6 +78,10 @@ Provider.create(name: "Doctor A", address: "456 Street, Los Angeles, CA 12345", 
 Provider.create(name: "Psychiatrist A", address: "789 Ave, Los Angeles, CA 12345", phone: "333-333-3333", first_visit: Date.new(2018,1,16), notes: "Asks lots of questions", user_id: 1, department_id: 2)
 Provider.create(name: "Therapist A", address: "10 Drive, Los Angeles, CA 12345", phone: "444-444-4444", first_visit: Date.new(2018,1,26), notes: "Very patient", user_id: 1, department_id: 3)
 
-Department.create(name: "Primary Care", provider_id: 1)
-Department.create(name: "Psychiatrist", provider_id: 1)
-Department.create(name: "Therapist", provider_id: 1)
+provider1 = Provider.find_by(id: 1)
+provider2 = Provider.find_by(id: 2)
+provider3 = Provider.find_by(id: 3)
+
+provider1.departments << Department.create(name: "Primary Care", provider_id: 1)
+provider2.departments << Department.create(name: "Psychiatrist", provider_id: 2)
+provider3.departments << Department.create(name: "Therapist", provider_id: 3)
