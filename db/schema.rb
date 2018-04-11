@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180331051124) do
+ActiveRecord::Schema.define(version: 20180411181349) do
 
   create_table "behavior_condition", force: :cascade do |t|
     t.integer "behavior_id"
@@ -61,7 +61,7 @@ ActiveRecord::Schema.define(version: 20180331051124) do
     t.string "name"
     t.integer "dose"
     t.string "prescribed"
-    t.datetime "first_dose"
+    t.date "first_dose"
     t.text "notes"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -80,7 +80,7 @@ ActiveRecord::Schema.define(version: 20180331051124) do
     t.string "name"
     t.string "address"
     t.string "phone"
-    t.datetime "first_visit"
+    t.date "first_visit"
     t.text "notes"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

@@ -67,7 +67,7 @@ end
 User.create(name: "James Peach", email: "james@email.com", password: "peaches")
 User.create(name: "Gina Smith", email: "gina@email.com", password: "cookies")
 
-Medication.create(name: "Medication A", dose: 10, prescribed: "Psychiatrist A", first_dose: Date.new(2018,1,6), notes: "Anxiety.", user_id: 1)
+Medication.create(name: "Medication A", dose: 10, prescribed: "Psychiatrist A", first_dose: Date.new(2018,1,6), notes: "Anxiety", user_id: 1)
 Medication.create(name: "Medication B", dose: 10, prescribed: "Psychiatrist B", first_dose: Date.new(2018,1,6), notes: "Depression", user_id: 1)
 Medication.create(name: "Medication A", dose: 30, prescribed: "Psychiatrist A", first_dose: Date.new(2018,1,6), notes: "trial medication", user_id: 2)
 
