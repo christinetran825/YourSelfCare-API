@@ -65,18 +65,18 @@ end
 
 
 User.create(name: "James Peach", email: "james@email.com", password: "peaches")
-User.create(name: "Kebler Elf", email: "elf@email.com", password: "cookies")
+User.create(name: "Gina Smith", email: "gina@email.com", password: "cookies")
 
-Medication.create(name: "Medication A", dose: 10, prescribed: "Psychiatrist A", first_dose: Date.new(2018,1,6), notes: "first medication ever taken.", user_id: 1)
-Medication.create(name: "Medication B", dose: 10, prescribed: "Psychiatrist B", first_dose: Date.new(2018,1,6), notes: "second medication ever taken.", user_id: 1)
+Medication.create(name: "Medication A", dose: 10, prescribed: "Psychiatrist A", first_dose: Date.new(2018,1,6), notes: "Anxiety.", user_id: 1)
+Medication.create(name: "Medication B", dose: 10, prescribed: "Psychiatrist B", first_dose: Date.new(2018,1,6), notes: "Depression", user_id: 1)
 Medication.create(name: "Medication A", dose: 30, prescribed: "Psychiatrist A", first_dose: Date.new(2018,1,6), notes: "trial medication", user_id: 2)
 
 Insurance.create(name: "Insurance A", address: "123 Street, Los Angeles, CA 12345", phone: "555-555-5555", notes: "PPO insurance", user_id: 1)
 Insurance.create(name: "Insurance A", address: "500 Street, Los Angeles, CA 12345", phone: "888-888-8888", notes: "HMO insurance", user_id: 2)
 
-Provider.create(name: "Doctor A", address: "456 Street, Los Angeles, CA 12345", phone: "222-222-2222", first_visit: Date.new(2018,1,6), notes: "Very patient doctor.", user_id: 1, department_id: 1)
-Provider.create(name: "Psychiatrist A", address: "789 Ave, Los Angeles, CA 12345", phone: "333-333-3333", first_visit: Date.new(2018,1,16), notes: "Very patient doctor.", user_id: 1, department_id: 2)
-Provider.create(name: "Therapist A", address: "10 Drive, Los Angeles, CA 12345", phone: "444-444-4444", first_visit: Date.new(2018,1,26), notes: "Very patient doctor.", user_id: 1, department_id: 3)
+Provider.create(name: "Doctor A", address: "456 Street, Los Angeles, CA 12345", phone: "222-222-2222", first_visit: Date.new(2018,1,6), notes: "Very patient", user_id: 1, department_id: 1)
+Provider.create(name: "Psychiatrist A", address: "789 Ave, Los Angeles, CA 12345", phone: "333-333-3333", first_visit: Date.new(2018,1,16), notes: "Asks lots of questions", user_id: 1, department_id: 2)
+Provider.create(name: "Therapist A", address: "10 Drive, Los Angeles, CA 12345", phone: "444-444-4444", first_visit: Date.new(2018,1,26), notes: "Very patient", user_id: 1, department_id: 3)
 
 Department.create(name: "Primary Care", provider_id: 1)
 Department.create(name: "Psychiatrist", provider_id: 1)
