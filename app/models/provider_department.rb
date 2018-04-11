@@ -1,4 +1,4 @@
 class ProviderDepartment < ApplicationRecord
-  belongs_to :provider
-  belongs_to :department
+  belongs_to :provider, optional: true
+  belongs_to :department, optional: true
 end
