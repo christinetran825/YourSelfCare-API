@@ -32,4 +32,6 @@ Rails.application.routes.draw do
   get '/api/behaviors/:behavior', :to => 'api/behaviors#show'
   get '/api/conditions/:condition', :to => 'api/conditions#show'
 
+  get '/api/providers/:provider_id/departments', :to => 'api/departments#index'
+
 end
