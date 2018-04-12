@@ -1,4 +1,4 @@
-class Api::DepartmentsController< ApplicationController
+class Api::DepartmentsController < ApplicationController
 
   # before_action :authenticate_user
   before_action :set_department, only: [:show, :update, :destroy]
@@ -7,7 +7,8 @@ class Api::DepartmentsController< ApplicationController
   def index
     # @department = current_user.provider.departments
     # render json: @department
-    @departments = Department.all
+    # @departments = Department.all
+    @departments = @provider.departments
     render json: @departments
   end
 
@@ -18,7 +19,8 @@ class Api::DepartmentsController< ApplicationController
     # else
     #   render json: { message: @department.errors }, status: 400
     # end
-    @department = Department.new(department_params)
+    # @department = Department.new(department_params)
+    @department = @provider.departments.new(department_params)
     if @department.save
       render json: @department
     else
