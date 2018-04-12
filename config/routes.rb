@@ -10,7 +10,19 @@ Rails.application.routes.draw do
   # resources :departments
 
   namespace :api do
-    resources :behaviors, :conditions, :users, :medications, :insurances, :providers, :departments
+    resources :users, :medications, :insurances
+  end
+
+  namespace :api do
+    resources :providers do
+      resources :departments
+    end
+  end
+
+  namespace :api do
+    resources :behaviors do
+      resources :conditions
+    end
   end
 
   get '/api/users/:user', :to => 'api/users#show'
