@@ -2,6 +2,7 @@ class Api::DepartmentsController< ApplicationController
 
   # before_action :authenticate_user
   before_action :set_department, only: [:show, :update, :destroy]
+  before_action :find_the_provider
 
   def index
     # @department = current_user.provider.departments
@@ -11,7 +12,7 @@ class Api::DepartmentsController< ApplicationController
   end
 
   def create
-    # @department = current_user.provider.department.build(department_params)
+    # @department = current_user.provider.departments.build(department_params)
     # if @department && @department.save
     #   render json: @department
     # else
@@ -48,8 +49,12 @@ class Api::DepartmentsController< ApplicationController
 
   private
 
+    def find_the_provider
+      @provider = Provider.find(params[:provider_id])
+    end
+
     def set_department
-      @department = Department.find(id: params[:id])
+      @department = Department.find_by(id: params[:id])
     end
 
     def department_params

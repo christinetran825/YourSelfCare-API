@@ -48,7 +48,7 @@ class Api::ProvidersController < ApplicationController
   private
 
     def set_provider
-      @provider = Provider.find(id: params[:id])
+      @provider = Provider.find_by(id: params[:id])
     end
 
     def provider_params

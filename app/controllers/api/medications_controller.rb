@@ -48,7 +48,7 @@ class Api::MedicationsController < ApplicationController
   private
 
     def set_medication
-      @medication = Medication.find(id: params[:id])
+      @medication = Medication.find_by(id: params[:id])
     end
 
     def medication_params

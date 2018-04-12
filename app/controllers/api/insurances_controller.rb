@@ -48,7 +48,7 @@ class Api::InsurancesController < ApplicationController
   private
 
     def set_insurance
-      @insurance = Insurance.find(id: params[:id])
+      @insurance = Insurance.find_by(id: params[:id])
     end
 
     def insurance_params

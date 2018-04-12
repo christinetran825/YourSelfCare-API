@@ -35,7 +35,7 @@ class Api::UsersController < ApplicationController
   private
 
     def set_user
-      @user = User.find(id: params[:id])
+      @user = User.find_by(id: params[:id])
     end
 
     def user_params
