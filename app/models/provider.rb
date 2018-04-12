@@ -1,7 +1,7 @@
 class Provider < ApplicationRecord
   belongs_to :user, optional: true
-  has_many :provider_departments, :dependent => :destroy
-  has_many :departments, through: :provider_departments
+  has_many :departments, :dependent => :destroy
+  accepts_nested_attributes_for :departments
 
   validates_presence_of :name, :address, :phone, :first_visit, :notes
   validates :phone, format: { with: /\d{3}-\d{3}-\d{4}/, message: "Use Telephone Format" }
