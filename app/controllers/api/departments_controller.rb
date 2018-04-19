@@ -5,7 +5,7 @@ class Api::DepartmentsController < ApplicationController
   before_action :find_the_provider
 
   def index
-    # @department = current_user.provider.departments
+    # @departments = current_user.provider.departments
     # render json: @department
     # @departments = Department.all
     @departments = @provider.departments
