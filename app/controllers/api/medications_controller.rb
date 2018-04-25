@@ -52,7 +52,7 @@ class Api::MedicationsController < ApplicationController
     end
 
     def medication_params
-      params.require(:medication).permit(:name, :dose, :prescribed, :first_dose, :notes)
+      params.require(:medication).permit(:name, :dose, :prescribed, :first_dose, :notes, :like)
     end
 
 end
