@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180411181349) do
+ActiveRecord::Schema.define(version: 20180425012548) do
 
   create_table "behavior_condition", force: :cascade do |t|
     t.integer "behavior_id"
@@ -66,6 +66,7 @@ ActiveRecord::Schema.define(version: 20180411181349) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
+    t.integer "like"
     t.index ["user_id"], name: "index_medications_on_user_id"
   end
 

@@ -1,0 +1,5 @@
+class AddLikeToMedications < ActiveRecord::Migration[5.1]
+  def change
+    add_column :medications, :like, :integer
+  end
+end

@@ -67,9 +67,9 @@ end
 User.create(name: "James Peach", email: "james@email.com", password: "peaches")
 User.create(name: "Gina Smith", email: "gina@email.com", password: "cookies")
 
-Medication.create(name: "Medication A", dose: 10, prescribed: "Psychiatrist A", first_dose: Date.new(2018,1,6), notes: "Anxiety", user_id: 1)
-Medication.create(name: "Medication B", dose: 10, prescribed: "Psychiatrist B", first_dose: Date.new(2018,1,6), notes: "Depression", user_id: 1)
-Medication.create(name: "Medication A", dose: 30, prescribed: "Psychiatrist A", first_dose: Date.new(2018,1,6), notes: "trial medication", user_id: 2)
+Medication.create(name: "Medication A", dose: 10, prescribed: "Psychiatrist A", first_dose: Date.new(2018,1,6), notes: "Anxiety", like: 0, user_id: 1)
+Medication.create(name: "Medication B", dose: 10, prescribed: "Psychiatrist B", first_dose: Date.new(2018,1,6), notes: "Depression", like: 1, user_id: 1)
+Medication.create(name: "Medication A", dose: 30, prescribed: "Psychiatrist A", first_dose: Date.new(2018,1,6), notes: "trial medication", like: 2, user_id: 2)
 
 Insurance.create(name: "Insurance A", address: "123 Street, Los Angeles, CA 12345", phone: "555-555-5555", notes: "PPO insurance", user_id: 1)
 Insurance.create(name: "Insurance A", address: "500 Street, Los Angeles, CA 12345", phone: "888-888-8888", notes: "HMO insurance", user_id: 2)
