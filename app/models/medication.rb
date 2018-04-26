@@ -1,7 +1,7 @@
 class Medication < ApplicationRecord
   belongs_to :user, optional: true
 
-  validates_presence_of :name, :dose, :prescribed, :first_dose, :notes, :like
+  validates_presence_of :name, :dose, :prescribed, :first_dose, :notes
   validates :dose, numericality: { only_integer: true }
 
   def make_title_case
