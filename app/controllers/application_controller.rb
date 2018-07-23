@@ -1,4 +1,9 @@
 class ApplicationController < ActionController::API
-  # include Knock::Authenticable
-  # before_action :authenticate_user
+  include Knock::Authenticable
+
+  private
+
+  def logged_in?
+    !!current_user
+  end
 end
