@@ -1,6 +1,6 @@
 class Api::ConditionsController < ApplicationController
 
-  # before_action :authenticate_user
+  before_action :authenticate_user
   before_action :set_condition, only: [:show, :update, :destroy]
 
   def index

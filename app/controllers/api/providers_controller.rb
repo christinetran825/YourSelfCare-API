@@ -1,28 +1,28 @@
 class Api::ProvidersController < ApplicationController
 
-  # before_action :authenticate_user
+  before_action :authenticate_user
   before_action :set_provider, only: [:show, :update, :destroy]
 
   def index
-    # @providers = current_user.providers
-    # render json: @providers
-    @providers = Provider.all
+    @providers = current_user.providers
     render json: @providers
+    # @providers = Provider.all
+    # render json: @providers
   end
 
   def create
-    # @provider = current_user.providers.build(provider_params)
-    # if @provider && @provider.save
-    #   render json: @provider
-    # else
-    #   render json: { message: @provider.errors }, status: 400
-    # end
-    @provider = Provider.new(provider_params)
-    if @provider.save
+    @provider = current_user.providers.build(provider_params)
+    if @provider && @provider.save
       render json: @provider
     else
       render json: { message: @provider.errors }, status: 400
     end
+    # @provider = Provider.new(provider_params)
+    # if @provider.save
+    #   render json: @provider
+    # else
+    #   render json: { message: @provider.errors }, status: 400
+    # end
   end
 
   def show

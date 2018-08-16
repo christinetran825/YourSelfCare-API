@@ -1,28 +1,28 @@
 class Api::MedicationsController < ApplicationController
 
-  # before_action :authenticate_user
+  before_action :authenticate_user
   before_action :set_medication, only: [:show, :update, :destroy]
 
   def index
-    # @medications = current_user.medications
-    # render json: @medications
-    @medications = Medication.all
+    @medications = current_user.medications
     render json: @medications
+    # @medications = Medication.all
+    # render json: @medications
   end
 
   def create
-    # @medication = current_user.medications.build(medication_params)
-    # if @medication && @medication.save
-    #   render json: @medication
-    # else
-    #   render json: { message: medication.errors }, status: 400
-    # end
-    @medication = Medication.new(medication_params)
-    if @medication.save
+    @medication = current_user.medications.build(medication_params)
+    if @medication && @medication.save
       render json: @medication
     else
-      render json: { message: @medication.errors }, status: 400
+      render json: { message: medication.errors }, status: 400
     end
+    # @medication = Medication.new(medication_params)
+    # if @medication.save
+    #   render json: @medication
+    # else
+    #   render json: { message: @medication.errors }, status: 400
+    # end
   end
 
   def show
