@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   namespace :api do
     resources :users, :medications, :insurances
     post 'user_token' => 'user_token#create'
-    get 'find_user' => 'users#find'
+    post 'find_user' => 'users#find'
   end
 
   namespace :api do
