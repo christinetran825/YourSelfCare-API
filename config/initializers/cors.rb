@@ -7,7 +7,7 @@
 
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
-    origins 'https://selfcare.surge.sh'
+    origins 'localhost:3000', 'https://selfcare.surge.sh'
 
     resource '*',
       headers: :any,
