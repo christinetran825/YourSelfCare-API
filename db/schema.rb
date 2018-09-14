@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 20180425012548) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "behavior_condition", force: :cascade do |t|
     t.integer "behavior_id"
     t.integer "condition_id"
@@ -24,8 +27,8 @@ ActiveRecord::Schema.define(version: 20180425012548) do
     t.string "details"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "condition_id"
-    t.integer "user_id"
+    t.bigint "condition_id"
+    t.bigint "user_id"
     t.index ["condition_id"], name: "index_behaviors_on_condition_id"
     t.index ["user_id"], name: "index_behaviors_on_user_id"
   end
@@ -34,7 +37,7 @@ ActiveRecord::Schema.define(version: 20180425012548) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "behavior_id"
+    t.bigint "behavior_id"
     t.index ["behavior_id"], name: "index_conditions_on_behavior_id"
   end
 
@@ -42,7 +45,7 @@ ActiveRecord::Schema.define(version: 20180425012548) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "provider_id"
+    t.bigint "provider_id"
     t.index ["provider_id"], name: "index_departments_on_provider_id"
   end
 
@@ -53,7 +56,7 @@ ActiveRecord::Schema.define(version: 20180425012548) do
     t.text "notes"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "user_id"
+    t.bigint "user_id"
     t.index ["user_id"], name: "index_insurances_on_user_id"
   end
 
@@ -65,7 +68,7 @@ ActiveRecord::Schema.define(version: 20180425012548) do
     t.text "notes"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "user_id"
+    t.bigint "user_id"
     t.integer "like"
     t.index ["user_id"], name: "index_medications_on_user_id"
   end
@@ -85,8 +88,8 @@ ActiveRecord::Schema.define(version: 20180425012548) do
     t.text "notes"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "user_id"
-    t.integer "department_id"
+    t.bigint "user_id"
+    t.bigint "department_id"
     t.index ["department_id"], name: "index_providers_on_department_id"
     t.index ["user_id"], name: "index_providers_on_user_id"
   end
@@ -99,4 +102,12 @@ ActiveRecord::Schema.define(version: 20180425012548) do
     t.string "password_digest"
   end
 
+  add_foreign_key "behaviors", "conditions"
+  add_foreign_key "behaviors", "users"
+  add_foreign_key "conditions", "behaviors"
+  add_foreign_key "departments", "providers"
+  add_foreign_key "insurances", "users"
+  add_foreign_key "medications", "users"
+  add_foreign_key "providers", "departments"
+  add_foreign_key "providers", "users"
 end
